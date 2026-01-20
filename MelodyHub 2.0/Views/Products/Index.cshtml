@@ -1,0 +1,70 @@
+﻿@model IEnumerable<MelodyHub_2._0.Models.Product>
+
+@{
+    ViewData["Title"] = "Музикален Каталог";
+}
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-5 p-4 rounded-4" style="background: rgba(30, 41, 59, 0.5); border: 1px solid #334155;">
+        <div>
+            <h1 class="display-5 fw-bold text-info mb-0">🎸 MelodyHub Каталог</h1>
+            <p class="text-secondary mb-0">Разгледайте нашите професионални инструменти</p>
+        </div>
+
+        <a asp-action="Create" class="btn btn-info btn-lg px-4 rounded-pill shadow-lg fw-bold text-dark hover-scale">
+            <i class="bi bi-plus-circle-fill me-2"></i>Добави Нов Инструмент
+        </a>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow border-0 rounded-4 overflow-hidden product-card" style="background: #1e293b; color: white;">
+                    <div style="height: 220px; overflow: hidden;">
+                        <img src="@item.ImageUrl" class="card-img-top" alt="@item.Name"
+                             style="object-fit: cover; width: 100%; height: 100%;"
+                             onerror="this.src='https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=500'">
+                    </div>
+
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h5 class="card-title fw-bold mb-0">@item.Name</h5>
+                            <span class="badge bg-info text-dark rounded-pill">@item.Category</span>
+                        </div>
+                        <p class="card-text text-secondary small">@item.Description</p>
+                        <h4 class="text-info fw-bold mt-3">@item.Price лв.</h4>
+                    </div>
+
+                    <div class="card-footer bg-transparent border-0 p-4 pt-0">
+                        <div class="btn-group w-100 shadow-sm">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-light btn-sm">Промени</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm">Детайли</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">Изтрий</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .product-card {
+        transition: transform 0.3s ease;
+    }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border: 1px solid #38bdf8 !important;
+        }
+
+    .hover-scale {
+        transition: 0.3s ease;
+    }
+
+        .hover-scale:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+        }
+</style>

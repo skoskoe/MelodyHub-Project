@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Добре дошли";
+}
+
+<div class="home-container">
+    <section class="hero-section text-center py-5 shadow-lg"
+             style="background: linear-gradient(135deg, #020617 0%, #1e3a8a 100%); border-radius: 0 0 60px 60px; min-height: 450px; display: flex; align-items: center;">
+        <div class="container">
+            <h1 class="display-1 fw-bolder text-white mb-3" style="letter-spacing: -2px; text-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+                MelodyHub 2.0
+            </h1>
+            <p class="fs-4 text-info opacity-75 mb-5 mx-auto fw-light" style="max-width: 750px;">
+                Твоето място за професионално музикално оборудване. <br /> Проектирано от музиканти за музиканти.
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+                <a asp-controller="Products" asp-action="Index" class="btn btn-info btn-lg px-5 py-3 rounded-pill fw-bold shadow-lg hover-scale">
+                    <i class="bi bi-music-note-list"></i> Към Каталога
+                </a>
+                <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill fw-bold hover-scale">
+                    Стани член
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container my-5">
+        <div class="row g-4 pt-4">
+            <div class="col-md-4">
+                <div class="feature-card p-4 text-center rounded-4 h-100 shadow" style="background: rgba(30, 41, 59, 0.4); border: 1px solid #334155;">
+                    <div class="icon-box mb-3 mx-auto text-info" style="font-size: 3rem;">
+                        <i class="bi bi-shield-lock-fill"></i>
+                    </div>
+                    <h3 class="fw-bold text-white">Сигурност</h3>
+                    <p class="text-secondary">Интегрирана Identity система за сигурен вход и пълна защита на твоите данни.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card p-4 text-center rounded-4 h-100 shadow" style="background: rgba(30, 41, 59, 0.4); border: 1px solid #334155;">
+                    <div class="icon-box mb-3 mx-auto text-info" style="font-size: 3rem;">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                    </div>
+                    <h3 class="fw-bold text-white">Бързина</h3>
+                    <p class="text-secondary">Оптимизирана SQL база данни за мигновено зареждане на инструментите.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card p-4 text-center rounded-4 h-100 shadow" style="background: rgba(30, 41, 59, 0.4); border: 1px solid #334155;">
+                    <div class="icon-box mb-3 mx-auto text-info" style="font-size: 3rem;">
+                        <i class="bi bi-phone-vibrate-fill"></i>
+                    </div>
+                    <h3 class="fw-bold text-white">Мобилност</h3>
+                    <p class="text-secondary">Напълно адаптивен интерфейс, който изглежда перфектно на всяко мобилно устройство.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    .hover-scale {
+        transition: 0.3s ease;
+    }
+
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+
+    .feature-card {
+        transition: 0.4s ease;
+        cursor: default;
+    }
+
+        .feature-card:hover {
+            background: rgba(30, 41, 59, 0.8) !important;
+            transform: translateY(-10px);
+            border-color: #38bdf8 !important;
+        }
+</style>
